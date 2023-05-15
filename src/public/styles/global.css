@@ -135,7 +135,6 @@ body > footer {
 
 body > main {
   flex: 1 1 auto;
-  overflow: auto;
 }
 
 .chatroom {
@@ -170,6 +169,7 @@ body > main {
   flex-flow: column nowrap;
   gap: 1em;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .message--send {
@@ -182,12 +182,38 @@ body > main {
   border: 1px solid lightgray;
   border-radius: 1.5em;
   padding: 1em;
+  position: relative;
+  margin-inline: 1.5em 0;
+}
+
+.message--recieved .message__content::before {
+  content: "";
+  height: 1.5em;
+  width: 3em;
+  background: transparent;
+  position: absolute;
+  left: -3em;
+  bottom: 0;
+  border-bottom-right-radius: 1.5em;
+  box-shadow: 1em 0 0 lightgray;
+}
+.message--send .message__content::before {
+  content: "";
+  height: 1.5em;
+  width: 3em;
+  background: transparent;
+  position: absolute;
+  right: -3em;
+  bottom: 0;
+  border-bottom-left-radius: 1.5em;
+  box-shadow: -1em 0 0 var(--primary-color);
 }
 
 .message--send .message__content {
   background: var(--primary-color);
   border-color: var(--primary-color);
   color: white;
+  margin-inline: 0 1.5em;
 }
 
 .form {
