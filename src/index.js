@@ -1,6 +1,7 @@
 import express from 'express'
 import http from 'http'
 import { Server } from 'socket.io'
+import { fontawesome } from './helpers/fontawesome.js'
 import compression from 'compression'
 import helmet from 'helmet'
 
@@ -9,6 +10,8 @@ const server = http.createServer(app)
 const socket = new Server(server)
 
 const port = process.env.PORT || 3000
+
+fontawesome(app)
 
 app.set('view engine', 'ejs')
 app.set('views', 'src/views')
@@ -23,8 +26,8 @@ app.use(express.urlencoded({ extended: true }))
 app.get('**', (req, res) => res.render('index'))
 
 socket.on('connection', (client) => {
-	client.on('chat message', (msg) => {
-		socket.emit('chat message', msg)
+	client.on('chat', (msg) => {
+		socket.emit('chat', msg)
 	})
 })
 

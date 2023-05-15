@@ -4,10 +4,20 @@
   </header>
 
   <div class="chatroom__content">
-    <ul id="messages"></ul>
+    <div class="messages-wrapper">
+      <ul id="messages" class="messages"></ul>
+    </div>
 
-    <form id="form" action="">
-      <input id="input" autocomplete="off" /><button>Send</button>
+    <form id="form" class="form" action="">
+      <input
+        id="input"
+        class="form__input input input--rounded"
+        type="text"
+        autocomplete="off"
+      />
+      <button type="submit" class="form__submit button button--rounded">
+        <span class="button__icon"><%- icon('paper-plane') %></span>
+      </button>
     </form>
   </div>
 </section>
