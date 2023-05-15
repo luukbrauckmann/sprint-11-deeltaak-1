@@ -121,6 +121,7 @@ body {
   font-family: var(--font-family);
   background: var(--background);
   color: var(--text-color);
+  line-height: 0.5rem;
 }
 
 body {
@@ -184,6 +185,7 @@ body > main {
   padding: 1em;
   position: relative;
   margin-inline: 1.5em 0;
+  line-height: 1;
 }
 
 .message--recieved .message__content::before {
@@ -226,8 +228,9 @@ body > main {
 }
 
 .input {
-  border: 1px solid grey;
+  border: 1px solid lightgray;
   padding: 1em;
+  height: calc(3rem + 2px);
 }
 
 .input--rounded {
